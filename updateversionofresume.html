@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinayak Singh - MintOS Resume V2.0</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Courier New", monospace;
+      background: linear-gradient(145deg, #1e1e1e, #111);
+      color: #fff;
+      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .boot-screen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #000;
+      color: #4caf50;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 2s ease 3s forwards;
+    }
+    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+
+    .navbar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #111;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #4caf50;
+      display: flex;
+      flex-direction: column;
+      z-index: 1001;
+    }
+    .nav-item {
+      color: #4caf50;
+      margin: 8px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .nav-item:hover {
+      color: #2ecc71;
+      transform: scale(1.1);
+    }
+
+    .window {
+      background: rgba(45, 45, 45, 0.95);
+      border: 2px solid #4caf50;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 0;
+      box-shadow: 0 0 25px rgba(0, 255, 100, 0.3);
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      opacity: 0;
+      transition: all 0.5s ease;
+      display: none;
+    }
+
+    .window.show {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+      display: block;
+    }
+
+    .window-header {
+      background: #2c2c2c;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #4caf50;
+    }
+    .window-header .title {
+      font-weight: bold;
+      color: #4caf50;
+      font-size: 18px;
+    }
+    .close-btn {
+      background: #e74c3c;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .window-content {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .window-content ul {
+      list-style: square;
+      margin-left: 20px;
+    }
+
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      color: #4caf50;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #4caf50;
+      z-index: 1002;
+      font-size: 14px;
+    }
+
+    /* Light Mode */
+    .light-mode {
+      background: #f5f5f5;
+      color: #333;
+    }
+    .light-mode .navbar, .light-mode .taskbar, .light-mode .window {
+      background: #fff;
+      color: #333;
+      border-color: #4caf50;
+    }
+    .light-mode .window-header {
+      background: #ddd;
+    }
+    .light-mode .nav-item {
+      color: #111;
+    }
+    .light-mode .nav-item:hover {
+      color: #4caf50;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="boot-screen">
+  <h1><i class="fas fa-terminal"></i> Booting MintOS...</h1>
+  <p>Loading Modules...</p>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="nav-item" onclick="openWindow('about')">About</div>
+  <div class="nav-item" onclick="openWindow('skills')">Skills</div>
+  <div class="nav-item" onclick="openWindow('experience')">Experience</div>
+  <div class="nav-item" onclick="openWindow('projects')">Projects</div>
+  <div class="nav-item" onclick="openWindow('education')">Education</div>
+  <div class="nav-item" onclick="openWindow('contact')">Contact</div>
+  <div class="nav-item" onclick="toggleMode()">🌞/🌙 Mode</div>
+</div>
+
+<!-- Windows -->
+
+<div class="window" id="about">
+  <div class="window-header">
+    <span class="title"><i class="fas fa-user"></i> About Me</span>
+    <span class="close-btn" onclick="closeWindow('about')"></span>
+  </div>
+  <div class="window-content">
+    <p><strong>Name:</strong> Vinayak Singh</p>
+    <p><strong>Email:</strong> vinayaksingh2172001@gmail.com</p>
+    <p><strong>Phone:</strong> +91 8303605116</p>
+    <p><strong>Location:</strong> Varanasi, Uttar Pradesh, India</p>
+  </div>
+</div>
+
+<div class="window" id="skills">
+  <div class="window-header">
+    <span class="title"><i class="fas fa-tools"></i> Skills</span>
+    <span class="close-btn" onclick="closeWindow('skills')"></span>
+  </div>
+  <div class="window-content">
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Java, MySQL</li>
+      <li>ERP Software Implementation & Support</li>
+      <li>Project Management</li>
+      <li>Problem-Solving & Google Sheets</li>
+    </ul>
+  </div>
+</div>
+
+<div class="window" id="experience">
+  <div class="window-header">
+    <span class="title"><i class="fas fa-briefcase"></i> Experience</span>
+    <span class="close-btn" onclick="closeWindow('experience')"></span>
+  </div>
+  <div class="window-content">
+    <p><strong>Web Development Intern - Oasis Infobyte</strong><br>Oct 2022 – Dec 2022, Gwalior</p>
+    <p><strong>Web Development Intern - LetsGrowMore</strong><br>Sep 2021 – Nov 2021, Gwalior</p>
+  </div>
+</div>
+
+<div class="window" id="projects">
+  <div class="window-header">
+    <span class="title"><i class="fas fa-code"></i> Projects</span>
+    <span class="close-btn" onclick="closeWindow('projects')"></span>
+  </div>
+  <div class="window-content">
+    <p><strong>Realtime Chat App</strong> — <a href="https://github.com/vinayaksingh369/Realtime-Chat-Web-Application-1" target="_blank">GitHub</a></p>
+    <p><strong>Customer Segmentation</strong> — <a href="https://github.com/vinayaksingh369/final-semester-project" target="_blank">GitHub</a></p>
+    <p><strong>ERP Testing</strong> — Bug finding and documentation</p>
+  </div>
+</div>
+
+<div class="window" id="education">
+  <div class="window-header">
+    <span class="title"><i class="fas fa-graduation-cap"></i> Education</span>
+    <span class="close-btn" onclick="closeWindow('education')"></span>
+  </div>
+  <div class="window-content">
+    <p><strong>B.Tech CSE - ITM University</strong> — CGPA 7.52</p>
+    <p><strong>Higher Secondary - Tulsi Vidya Niketan</strong> — 61%</p>
+    <p><strong>Secondary - St. Al-Haneef</strong> — 83%</p>
+  </div>
+</div>
+
+<div class="window" id="contact">
+  <div class="window-header">
+    <span class="title"><i class="fas fa-envelope"></i> Contact</span>
+    <span class="close-btn" onclick="closeWindow('contact')"></span>
+  </div>
+  <div class="window-content">
+    <p><strong>Email:</strong> <a href="mailto:vinayaksingh2172001@gmail.com">vinayaksingh2172001@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+918303605116">+91 8303605116</a></p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vinayak-singh-5712b91a8/" target="_blank">Vinayak Singh</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/vinayaksingh369" target="_blank">vinayaksingh369</a></p>
+  </div>
+</div>
+
+<!-- Taskbar -->
+<div class="taskbar">
+  <div><i class="fas fa-linux"></i> MintOS Start</div>
+  <div id="datetime">Loading time...</div>
+</div>
+
+<!-- JavaScript Magic -->
+<script>
+  function openWindow(id) {
+    document.querySelectorAll('.window').forEach(w => w.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
+  }
+
+  function closeWindow(id) {
+    document.getElementById(id).classList.remove('show');
+  }
+
+  function toggleMode() {
+    document.body.classList.toggle('light-mode');
+  }
+
+  setInterval(() => {
+    const now = new Date();
+    document.getElementById('datetime').innerText =
+      now.toLocaleDateString() + ' | ' + now.toLocaleTimeString();
+  }, 1000);
+</script>
+
+</body>
+</html>
