@@ -1,406 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-papNM4b0P2EGO/EWcSgmvY1HVVE+gxUv5QMSg/KaWoxTk7pbWjxzWxF1Il8Y9U5dKz6wAy3Qk5zMAz6VvHUZKg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinayak Singh | ResumeOS Ultimate</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-   Now fixing any logos/icons -->
-  <!-- Just ensure Font Awesome class names are correct -->
-  <!-- Example replacements in window headers: -->
-  <!-- <span class="title"><i class="fa-solid fa-wrench"></i> Skills</span>
-  <span class="title"><i class="fa-solid fa-briefcase"></i> Experience</span>
-  <span class="title"><i class="fa-solid fa-code"></i> Projects</span>
-  <span class="title"
-    ><i class="fa-solid fa-graduation-cap"></i> Education</span
-  >
-  <span class="title"><i class="fa-solid fa-envelope"></i> Contact</span> -->
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vinayak Singh - MintOS Resume</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        background: linear-gradient(145deg, #1e1e1e, #111);
-        font-family: "Courier New", monospace;
-        color: #fff;
-        overflow-x: hidden;
-      }
-      .boot-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #000;
-        color: #4caf50;
-        font-size: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        animation: fadeOut 2s ease 2s forwards;
-      }
-      @keyframes fadeOut {
-        to {
-          opacity: 0;
-          visibility: hidden;
-        }
-      }
-      .window {
-        background: rgba(45, 45, 45, 0.95);
-        border: 2px solid #4caf50;
-        border-radius: 8px;
-        width: 90%;
-        max-width: 600px;
-        margin: 30px auto;
-        box-shadow: 0 0 25px rgba(0, 255, 100, 0.3);
-        transition: transform 0.3s ease;
-        position: relative;
-        cursor: move;
-      }
-      .window:hover {
-        transform: scale(1.02);
-      }
-      .window-header {
-        background: #2c2c2c;
-        padding: 10px 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #4caf50;
-        cursor: grab;
-      }
-      .window-header .title {
-        font-weight: bold;
-        color: #4caf50;
-      }
-      .window-header .buttons span {
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        margin-left: 6px;
-      }
-      .btn-red {
-        background: #e74c3c;
-      }
-      .btn-yellow {
-        background: #f1c40f;
-      }
-      .btn-green {
-        background: #2ecc71;
-      }
-      .window-content {
-        padding: 20px;
-        font-size: 16px;
-        line-height: 1.6;
-      }
-      .window-content ul {
-        padding-left: 20px;
-      }
-      .taskbar {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: #111;
-        border-top: 1px solid #333;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        color: #4caf50;
-        font-size: 14px;
-        z-index: 1000;
-      }
-      .desktop-icons {
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        max-width: 90px;
-        z-index: 100;
-      }
-      .desktop-icons a {
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 12px;
-      }
-      .desktop-icons img {
-        width: 48px;
-        margin-bottom: 5px;
-      }
-      @media (max-width: 768px) {
-        .window-content {
-          font-size: 14px;
-        }
-        .desktop-icons {
-          flex-direction: row;
-          top: unset;
-          bottom: 70px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="boot-screen">
-      <p><i class="fas fa-terminal"></i> Booting Vinayak Singh's ResumeOS...</p>
-      <p>Loading <span class="dots">.</span></p>
-    </div>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: black;
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden;
+      color: #00ffcc;
+    }
 
-    <div class="desktop-icons">
-      <a href="#about"
-        ><img
-          src="https://img.icons8.com/?size=64&id=19874&format=png"
-          alt="About Icon"
-        />About</a
-      >
-      <a href="#skills"
-        ><img
-          src="https://img.icons8.com/?size=64&id=19877&format=png"
-          alt="Skills Icon"
-        />Skills</a
-      >
-      <a href="#experience"
-        ><img
-          src="https://img.icons8.com/?size=64&id=21278&format=png"
-          alt="Experience Icon"
-        />Experience</a
-      >
-      <a href="#projects"
-        ><img
-          src="https://img.icons8.com/?size=64&id=19881&format=png"
-          alt="Project Icon"
-        />Projects</a
-      >
-      <a href="#education"
-        ><img
-          src="https://img.icons8.com/?size=64&id=19875&format=png"
-          alt="Education Icon"
-        />Education</a
-      >
-      <a href="#contact"
-        ><img
-          src="https://img.icons8.com/?size=64&id=19876&format=png"
-          alt="Contact Icon"
-        />Contact</a
-      >
-    </div>
+    /* Boot Screen */
+    .boot-screen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: black;
+      color: #00ff00;
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .dots::after {
+      content: '';
+      animation: dots 1.5s steps(5, end) infinite;
+    }
+    @keyframes dots {
+      0% { content: ''; }
+      20% { content: '.'; }
+      40% { content: '..'; }
+      60% { content: '...'; }
+      80% { content: '....'; }
+      100% { content: '.....'; }
+    }
 
-    <!-- Example Window -->
-    <div class="window" id="about">
-      <div class="window-header">
-        <span class="title"><i class="fas fa-user"></i> About Me</span>
-        <div class="buttons">
-          <span class="btn-red"></span>
-          <span class="btn-yellow"></span>
-          <span class="btn-green"></span>
-        </div>
-      </div>
-      <div class="window-content">
-        <p><strong>Name:</strong> Vinayak Singh</p>
-        <p><strong>Email:</strong> vinayaksingh2172001@gmail.com</p>
-        <p><strong>Phone:</strong> +91 8303605116</p>
-        <p><strong>Location:</strong> Varanasi, Uttar Pradesh, India</p>
-      </div>
-    </div>
+    /* Navbar */
+    .nav-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(145deg, #1a1a1a, #000);
+      border: 2px solid #00ffcc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: #00ffcc;
+      cursor: pointer;
+      z-index: 1001;
+      transition: 0.3s;
+    }
+    .nav-button:hover {
+      background: #00ffcc;
+      color: #000;
+    }
 
-    <div class="taskbar">
-      <div><i class="fas fa-linux"></i> Mint Start</div>
-      <div>Vinayak Singh | MintOS Resume</div>
-    </div>
-    <div class="window" id="skills">
-      <div class="window-header">
-        <span class="title"><i class="fas fa-tools"></i> Skills</span>
-        <div class="buttons">
-          <span class="btn-red"></span>
-          <span class="btn-yellow"></span>
-          <span class="btn-green"></span>
-        </div>
-      </div>
-      <div class="window-content">
-        <ul>
-          <li>HTML, CSS, JavaScript</li>
-          <li>Java, MySQL</li>
-          <li>ERP Software Implementation & Support</li>
-          <li>Project Management, Problem-Solving</li>
-          <li>Test Case Design & Execution</li>
-          <li>Google Sheets</li>
-        </ul>
-      </div>
-    </div>
+    .nav-menu {
+      position: fixed;
+      top: 90px;
+      left: 20px;
+      background: rgba(0,0,0,0.8);
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      padding: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+      animation: fadeIn 0.5s ease;
+    }
 
-    <!-- Experience Window -->
-    <div class="window" id="experience">
-      <div class="window-header">
-        <span class="title"><i class="fas fa-briefcase"></i> Experience</span>
-        <div class="buttons">
-          <span class="btn-red"></span>
-          <span class="btn-yellow"></span>
-          <span class="btn-green"></span>
-        </div>
-      </div>
-      <div class="window-content">
-        <p>
-          <strong>Web Development Intern, Oasis Infobyte</strong><br />Oct 2022
-          – Dec 2022, Gwalior, India<br />Frontend design using HTML, CSS,
-          Bootstrap, and JavaScript.
-        </p>
-        <p>
-          <strong>Web Development Intern, LetsGrowMore</strong><br />Sep 2021 –
-          Nov 2021, Gwalior, India<br />Built responsive interfaces and
-          integrated backend data.
-        </p>
-      </div>
-    </div>
+    .nav-menu a {
+      color: #00ffcc;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 5px;
+      transition: 0.3s;
+    }
+    .nav-menu a:hover {
+      background: #00ffcc;
+      color: #000;
+      border-radius: 5px;
+    }
 
-    <!-- Projects Window -->
-    <div class="window" id="projects">
-      <div class="window-header">
-        <span class="title"><i class="fas fa-code"></i> Projects</span>
-        <div class="buttons">
-          <span class="btn-red"></span>
-          <span class="btn-yellow"></span>
-          <span class="btn-green"></span>
-        </div>
-      </div>
-      <div class="window-content">
-        <p>
-          <strong>Realtime Chat Web Application</strong><br />HTML, CSS, JS,
-          PHP, MySQL – Local XAMPP server.<br /><a
-            href="https://github.com/vinayaksingh369/Realtime-Chat-Web-Application-1"
-            target="_blank"
-            >GitHub</a
-          >
-        </p>
-        <p>
-          <strong>Customer Segmentation with K-Means</strong><br />Optimized
-          marketing using clustering techniques.<br /><a
-            href="https://github.com/vinayaksingh369/final-semester-project"
-            target="_blank"
-            >GitHub</a
-          >
-        </p>
-        <p>
-          <strong>ERP Testing</strong><br />Performed functional and regression
-          testing, documented bugs and test cases.
-        </p>
-      </div>
-    </div>
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
 
-    <!-- Education Window -->
-    <div class="window" id="education">
-      <div class="window-header">
-        <span class="title"
-          ><i class="fas fa-graduation-cap"></i> Education</span
-        >
-        <div class="buttons">
-          <span class="btn-red"></span>
-          <span class="btn-yellow"></span>
-          <span class="btn-green"></span>
-        </div>
-      </div>
-      <div class="window-content">
-        <p>
-          <strong>B.Tech CSE, ITM University</strong><br />CGPA: 7.52 (2019 –
-          2023)
-        </p>
-        <p>
-          <strong>Higher Secondary, Tulsi Vidya Niketan</strong><br />Score: 61%
-          (2017 – 2018)
-        </p>
-        <p>
-          <strong>Secondary, St. Al-Haneef</strong><br />Score: 83% (2014 –
-          2016)
-        </p>
-      </div>
-    </div>
+    /* Windows */
+    .window {
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00ffcc;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      display: none;
+      animation: popUp 0.5s ease forwards;
+      box-shadow: 0 0 20px #00ffcc;
+      cursor: move;
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      top: 120px;
+    }
 
-    <!-- Contact Window -->
-    <div class="window" id="contact">
-      <div class="window-header">
-        <span class="title"><i class="fas fa-envelope"></i> Contact</span>
-        <div class="buttons">
-          <span class="btn-red"></span>
-          <span class="btn-yellow"></span>
-          <span class="btn-green"></span>
-        </div>
-      </div>
-      <div class="window-content">
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:vinayaksingh2172001@gmail.com"
-            >vinayaksingh2172001@gmail.com</a
-          >
-        </p>
-        <p>
-          <strong>Phone:</strong> <a href="tel:+918303605116">+91 8303605116</a>
-        </p>
-        <p>
-          <strong>LinkedIn:</strong>
-          <a
-            href="https://www.linkedin.com/in/vinayak-singh-5712b91a8/"
-            target="_blank"
-            >vinayak-singh</a
-          >
-        </p>
-        <p>
-          <strong>GitHub:</strong>
-          <a href="https://github.com/vinayaksingh369" target="_blank"
-            >vinayaksingh369</a
-          >
-        </p>
-      </div>
-    </div>
+    @keyframes popUp {
+      0% { transform: scale(0.5) translateX(-50%); opacity: 0; }
+      100% { transform: scale(1) translateX(-50%); opacity: 1; }
+    }
 
-    <script>
-      // Drag and drop logic
-      document.querySelectorAll(".window").forEach((win) => {
-        let isDragging = false,
-          offsetX,
-          offsetY;
-        const header = win.querySelector(".window-header");
+    .window h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #00ffcc;
+      text-align: center;
+    }
+    .window p, .window ul {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+    .window ul { list-style-type: square; padding-left: 20px; }
 
-        header.addEventListener("mousedown", (e) => {
-          isDragging = true;
-          offsetX = e.clientX - win.offsetLeft;
-          offsetY = e.clientY - win.offsetTop;
-          win.style.zIndex = 1001;
-        });
+    /* Matrix Rain */
+    canvas#matrix {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: black;
+    }
+  </style>
+</head>
 
-        document.addEventListener("mousemove", (e) => {
-          if (isDragging) {
-            win.style.left = `${e.clientX - offsetX}px`;
-            win.style.top = `${e.clientY - offsetY}px`;
-            win.style.position = "absolute";
-          }
-        });
+<body>
 
-        document.addEventListener("mouseup", () => {
-          isDragging = false;
-        });
-      });
-    </script>
-  </body>
+<!-- Boot screen -->
+<div class="boot-screen" id="bootScreen">
+  <p><i class="fas fa-terminal"></i> Booting ResumeOS Ultimate</p>
+  <p>Loading<span class="dots"></span></p>
+</div>
+
+<!-- Matrix Canvas -->
+<canvas id="matrix"></canvas>
+
+<!-- Navbar Button -->
+<div class="nav-button" id="navButton">
+  <i class="fas fa-bars"></i>
+</div>
+
+<!-- Navbar Menu -->
+<div class="nav-menu" id="navMenu">
+  <a href="#" onclick="showWindow('about')">About</a>
+  <a href="#" onclick="showWindow('skills')">Skills</a>
+  <a href="#" onclick="showWindow('experience')">Experience</a>
+  <a href="#" onclick="showWindow('projects')">Projects</a>
+  <a href="#" onclick="showWindow('education')">Education</a>
+  <a href="#" onclick="showWindow('contact')">Contact</a>
+</div>
+
+<!-- Windows -->
+<div class="window" id="about">
+  <h2>About Me</h2>
+  <p><strong>Name:</strong> Vinayak Singh</p>
+  <p><strong>Email:</strong> vinayaksingh2172001@gmail.com</p>
+  <p><strong>Phone:</strong> +91 8303605116</p>
+  <p><strong>Location:</strong> Varanasi, UP, India</p>
+</div>
+
+<div class="window" id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML, CSS, JavaScript</li>
+    <li>Java, MySQL</li>
+    <li>ERP Implementation & Support</li>
+    <li>Testing, Debugging</li>
+    <li>Google Sheets Expert</li>
+  </ul>
+</div>
+
+<div class="window" id="experience">
+  <h2>Experience</h2>
+  <p><strong>Web Dev Intern, Oasis Infobyte</strong> — Oct 2022 – Dec 2022</p>
+  <p><strong>Web Dev Intern, LetsGrowMore</strong> — Sep 2021 – Nov 2021</p>
+</div>
+
+<div class="window" id="projects">
+  <h2>Projects</h2>
+  <p><strong>Realtime Chat App:</strong> <a href="https://github.com/vinayaksingh369/Realtime-Chat-Web-Application-1" target="_blank">View</a></p>
+  <p><strong>Customer Segmentation:</strong> <a href="https://github.com/vinayaksingh369/final-semester-project" target="_blank">View</a></p>
+</div>
+
+<div class="window" id="education">
+  <h2>Education</h2>
+  <p><strong>B.Tech CSE, ITM University</strong> — CGPA 7.52 (2019–2023)</p>
+  <p><strong>12th, Tulsi Vidya Niketan</strong> — 61%</p>
+  <p><strong>10th, St. Al-Haneef</strong> — 83%</p>
+</div>
+
+<div class="window" id="contact">
+  <h2>Contact</h2>
+  <p><strong>Email:</strong> <a href="mailto:vinayaksingh2172001@gmail.com">vinayaksingh2172001@gmail.com</a></p>
+  <p><strong>Phone:</strong> <a href="tel:+918303605116">+91 8303605116</a></p>
+  <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vinayak-singh-5712b91a8/" target="_blank">Profile</a></p>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" src="https://files.catbox.moe/mt6dz1.mp3" autoplay loop></audio>
+
+<!-- Click Sound -->
+<audio id="clickSound" src="https://files.catbox.moe/x3l2ef.mp3"></audio>
+
+<script>
+  // Boot screen hide
+  setTimeout(() => {
+    document.getElementById('bootScreen').style.display = 'none';
+    document.getElementById('bgMusic').play();
+  }, 3000);
+
+  // Nav button toggle
+  const navButton = document.getElementById('navButton');
+  const navMenu = document.getElementById('navMenu');
+  navButton.addEventListener('click', () => {
+    navMenu.style.display = (navMenu.style.display === 'flex') ? 'none' : 'flex';
+  });
+
+  // Show window
+  function showWindow(id) {
+    document.getElementById('clickSound').play();
+    document.querySelectorAll('.window').forEach(win => win.style.display = 'none');
+    const windowToShow = document.getElementById(id);
+    windowToShow.style.display = 'block';
+    navMenu.style.display = 'none';
+  }
+
+  // Matrix rain code
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  let letters = Array(256).join("0").split("");
+
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#0f0";
+    letters.map(function(y_pos, index){
+      let text = String.fromCharCode(3e4 + Math.random() * 33);
+      let x_pos = index * 10;
+      ctx.fillText(text, x_pos, y_pos);
+      letters[index] = (y_pos > 758 + Math.random() * 1e4) ? 0 : y_pos + 10;
+    });
+  }
+  setInterval(draw, 33);
+
+  // Make windows draggable
+  document.querySelectorAll('.window').forEach(win => {
+    win.addEventListener('mousedown', function(e) {
+      let offsetX = e.clientX - win.offsetLeft;
+      let offsetY = e.clientY - win.offsetTop;
+      function mouseMoveHandler(e) {
+        win.style.left = `${e.clientX - offsetX}px`;
+        win.style.top = `${e.clientY - offsetY}px`;
+      }
+      function mouseUpHandler() {
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+      }
+      document.addEventListener('mousemove', mouseMoveHandler);
+      document.addEventListener('mouseup', mouseUpHandler);
+    });
+  });
+</script>
+
+</body>
 </html>
